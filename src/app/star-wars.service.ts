@@ -63,7 +63,6 @@ export class StarWarsService {
     // emits the charactersChanged event
     this.charactersChanged.next();
     this.logService.writeLog('Changed side of ' + characterInfo.name + ', new side: ' + characterInfo.side);
-    console.log('this.characters', this.characters);
   }
 
 }

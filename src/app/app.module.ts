@@ -5,38 +5,30 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
-import { TabsComponent } from './tabs/tabs.component';
-import { ListComponent } from './list/list.component';
+import { CreateCharacterComponent } from './create-character/create-character.component';
 import { ItemComponent } from './item/item.component';
+import { ListComponent } from './list/list.component';
+import { TabsComponent } from './tabs/tabs.component';
 
 import { LogService } from './log.service';
 import { StarWarsService } from './star-wars.service';
-import { CreateCharacterComponent } from './create-character/create-character.component';
 import { HeaderComponent } from './header/header.component';
-
-const routes = [
-  { path: 'characters', component: TabsComponent, children: [
-    { path: '', redirectTo: 'all', pathMatch: 'full' },
-    { path: ':side', component: ListComponent }
-  ] },
-  { path: 'new-character', component: CreateCharacterComponent },
-  { path: '**', redirectTo: '/characters' }
-];
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
     AppComponent,
+    CreateCharacterComponent,
     TabsComponent,
     ListComponent,
     ItemComponent,
-    CreateCharacterComponent,
     HeaderComponent
   ],
   imports: [
+    AppRoutingModule,
     BrowserModule,
     HttpModule,
-    FormsModule,
-    RouterModule.forRoot(routes)
+    FormsModule
   ],
   providers: [
     LogService,
